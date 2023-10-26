@@ -2,7 +2,7 @@
 db.sqlite3
 static/
 sandbox/
-surajvenv/
+surajven/
 # Data
 data/
 *.csv
