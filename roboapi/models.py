@@ -1,5 +1,5 @@
 from django.db import models 
-
+from django.contrib.auth.models import User
 
 class RobotCategory(models.Model): 
 	name = models.CharField(max_length=150, unique=True) 
@@ -41,6 +41,13 @@ class Robot(models.Model):
 		default='INR') 
 	price = models.IntegerField() 
 	manufacturing_date = models.DateTimeField(auto_now_add=True)
+
+	owner = models.ForeignKey(
+        'auth.User',
+        related_name= 'robots',
+        on_delete=models.CASCADE,null=True,
+		default=None
+    )
 
 	class Meta: 
 		ordering = ('name',) 
